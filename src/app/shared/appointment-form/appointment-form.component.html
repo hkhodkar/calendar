@@ -1,0 +1,58 @@
+<div class="header">
+  <div>
+    <h2 mat-dialog-title>Set Appointment</h2>
+  </div>
+  <div *ngIf="editMode">
+    <mat-icon class="header-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="delete"
+      (click)="deleteItem()"></mat-icon>
+  </div>
+</div>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <section class="set-time">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Start time time</mat-label>
+          <mat-select formControlName="startTime">
+            <mat-option *ngFor="let item of selectedTime" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="startTime?.hasError('required') && !startTime?.hasError('required')">
+            start-time
+          </mat-error>
+          <mat-error *ngIf="startTime?.hasError('required')">
+            start time <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>End time</mat-label>
+          <mat-select formControlName="endTime">
+            <mat-option *ngFor="let item of selectedTime" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="endTime?.hasError('required') && !endTime?.hasError('required')">
+            end-time
+          </mat-error>
+          <mat-error *ngIf="endTime?.hasError('required')">
+            End time <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </section>
+    <section>
+      <mat-form-field class="description">
+        <mat-label>description</mat-label>
+        <textarea formControlName="description" matInput></textarea>
+      </mat-form-field>
+    </section>
+    <mat-dialog-actions align="end">
+      <button mat-raised-button color="accent" [mat-dialog-close]="false" mat-dialog-close>Cancel</button>
+      <button mat-raised-button color="primary" cdkFocusInitial [disabled]="!form.valid">Save</button>
+    </mat-dialog-actions>
+
+  </form>
+</mat-dialog-content>

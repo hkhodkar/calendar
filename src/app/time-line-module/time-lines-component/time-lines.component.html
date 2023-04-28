@@ -1,0 +1,13 @@
+<h2 class="page-title">{{pageTitle}}</h2>
+<section class="layout">
+  <div class="celendar">
+    <app-calendar [selectedDate]="selectedDate"></app-calendar>
+  </div>
+  <div class="time-line" cdkDropList (cdkDropListDropped)="drop($event)">
+    <div [ngClass]="getClass(item)" (click)="onClickHour(index)" class="time-table"
+      *ngFor="let item of timeTable; let index=index" cdkDrag [cdkDragDisabled]="!getClass(item)">
+      <div class="time-line-item">{{item}}</div>
+      <div *cdkDragPlaceholder></div>
+    </div>
+  </div>
+</section>

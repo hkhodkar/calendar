@@ -1,0 +1,7 @@
+<section class="container">
+  <mat-card class="calendar">
+    <mat-calendar #calendar [startAt]="selectedDate" [(selected)]="selectedDate"
+      (selectedChange)="onSelectDate()"></mat-calendar>
+  </mat-card>
+</section>
+<router-outlet></router-outlet>

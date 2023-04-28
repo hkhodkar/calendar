@@ -1,0 +1,28 @@
+.time-table {
+  padding: 1rem;
+  border: solid 1px #e3e3e3;
+}
+
+.active-item {
+  background-color: #7986CB;
+}
+
+.layout {
+  display: flex;
+  gap: 2rem;
+}
+
+.page-title {
+  padding-top: 3rem;
+  margin-left: 4rem;
+  text-align: center;
+}
+
+.calendar {
+  flex-grow: 1;
+}
+
+.time-line {
+  flex-grow: 2;
+
+}
