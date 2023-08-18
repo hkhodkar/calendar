@@ -109,7 +109,7 @@ export class TimeLinesComponent implements OnInit {
   }
 
   private diffMinutes(appointment: Appointment) {
-    var diff = (appointment.endTime.getTime() - appointment.startTime.getTime()) / 1000;
+    let diff = (appointment.endTime.getTime() - appointment.startTime.getTime()) / 1000;
     diff /= 60;
     return Math.abs(Math.round(diff));
   }
